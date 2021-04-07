@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {IVocabularyItem} from 'superdesk-api';
-import {gettext} from '../../../utils/gettext';
 import {IAssignmentItem} from '../../../interfaces';
 import {extensionBridge} from '../extension_bridge';
 import {superdesk} from '../superdesk';
@@ -23,7 +22,7 @@ export class AssignmentsOverviewListItem extends React.PureComponent<IProps> {
         return (
             <button
                 style={{display: 'block', width: '100%', paddingTop: 10, textAlign: 'left'}}
-                title={gettext('Open Assignment')}
+                title={'Open Assignment'}
                 onClick={() => {
                     onClick();
                     superdesk.browser.location.setPage(`/workspace/assignments?assignment=${assignment._id}`);

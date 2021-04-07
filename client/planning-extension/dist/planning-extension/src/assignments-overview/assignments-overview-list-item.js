@@ -14,7 +14,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var gettext_1 = require("../../../utils/gettext");
 var extension_bridge_1 = require("../extension_bridge");
 var superdesk_1 = require("../superdesk");
 var _a = superdesk_1.superdesk.components, ListItem = _a.ListItem, ListItemColumn = _a.ListItemColumn, ListItemRow = _a.ListItemRow;
@@ -28,7 +27,7 @@ var AssignmentsOverviewListItem = /** @class */ (function (_super) {
     AssignmentsOverviewListItem.prototype.render = function () {
         var _a = this.props, assignment = _a.assignment, contentTypes = _a.contentTypes, onClick = _a.onClick;
         var className = getAssignmentTypeInfo(assignment, contentTypes).className;
-        return (React.createElement("button", { style: { display: 'block', width: '100%', paddingTop: 10, textAlign: 'left' }, title: gettext_1.gettext('Open Assignment'), onClick: function () {
+        return (React.createElement("button", { style: { display: 'block', width: '100%', paddingTop: 10, textAlign: 'left' }, title: 'Open Assignment', onClick: function () {
                 onClick();
                 superdesk_1.superdesk.browser.location.setPage("/workspace/assignments?assignment=" + assignment._id);
             } },
