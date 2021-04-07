@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {IVocabularyItem} from 'superdesk-api';
+import {gettext} from '../../../utils';
 import {IAssignmentItem} from '../../../interfaces';
 import {extensionBridge} from '../extension_bridge';
 import {superdesk} from '../superdesk';
 
 const {ListItem, ListItemColumn, ListItemRow} = superdesk.components;
-const {getClass} = superdesk.utilities.CSS;
 const {getAssignmentTypeInfo} = extensionBridge.assignments.utils;
 const {SluglineComponent, DueDateComponent, StateComponent} = extensionBridge.assignments.components;
 
@@ -18,35 +18,36 @@ interface IProps {
 export class AssignmentsOverviewListItem extends React.PureComponent<IProps> {
     render() {
         const {assignment, contentTypes, onClick} = this.props;
-        const {className, tooltip} = getAssignmentTypeInfo(assignment, contentTypes);
+        const {className} = getAssignmentTypeInfo(assignment, contentTypes);
 
         return (
             <button
-                className={getClass('assignments-overview--item')}
+                style={{display: 'block', width: '100%', paddingTop: 10, textAlign: 'left'}}
+                title={gettext('Open Assignment')}
                 onClick={() => {
                     onClick();
                     superdesk.browser.location.setPage(`/workspace/assignments?assignment=${assignment._id}`);
                 }}
             >
-                <ListItem fullWidth>
+                <ListItem>
                     <ListItemColumn>
-                        <i className={className} title={tooltip} />
+                        <i className={className} />
                     </ListItemColumn>
 
-                    <ListItemColumn grow noPadding>
+                    <ListItemColumn>
                         <ListItemRow>
-                            <ListItemColumn grow>
+                            <ListItemColumn>
                                 <SluglineComponent assignment={assignment} />
                             </ListItemColumn>
                         </ListItemRow>
 
                         <ListItemRow>
-                            <ListItemColumn noBorder grow>
+                            <ListItemColumn noBorder>
                                 <StateComponent assignment={assignment} />
                             </ListItemColumn>
 
                             <ListItemColumn>
-                                <DueDateComponent assignment={assignment} />
+                                <DueDateComponent assignment={assignment} showTooltip={false}/>
                             </ListItemColumn>
                         </ListItemRow>
                     </ListItemColumn>

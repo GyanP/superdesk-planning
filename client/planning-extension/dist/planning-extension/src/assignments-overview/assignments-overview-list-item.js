@@ -14,10 +14,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
+var utils_1 = require("../../../utils");
 var extension_bridge_1 = require("../extension_bridge");
 var superdesk_1 = require("../superdesk");
 var _a = superdesk_1.superdesk.components, ListItem = _a.ListItem, ListItemColumn = _a.ListItemColumn, ListItemRow = _a.ListItemRow;
-var getClass = superdesk_1.superdesk.utilities.CSS.getClass;
 var getAssignmentTypeInfo = extension_bridge_1.extensionBridge.assignments.utils.getAssignmentTypeInfo;
 var _b = extension_bridge_1.extensionBridge.assignments.components, SluglineComponent = _b.SluglineComponent, DueDateComponent = _b.DueDateComponent, StateComponent = _b.StateComponent;
 var AssignmentsOverviewListItem = /** @class */ (function (_super) {
@@ -27,23 +27,23 @@ var AssignmentsOverviewListItem = /** @class */ (function (_super) {
     }
     AssignmentsOverviewListItem.prototype.render = function () {
         var _a = this.props, assignment = _a.assignment, contentTypes = _a.contentTypes, onClick = _a.onClick;
-        var _b = getAssignmentTypeInfo(assignment, contentTypes), className = _b.className, tooltip = _b.tooltip;
-        return (React.createElement("button", { className: getClass('assignments-overview--item'), onClick: function () {
+        var className = getAssignmentTypeInfo(assignment, contentTypes).className;
+        return (React.createElement("button", { style: { display: 'block', width: '100%', paddingTop: 10, textAlign: 'left' }, title: utils_1.gettext('Open Assignment'), onClick: function () {
                 onClick();
                 superdesk_1.superdesk.browser.location.setPage("/workspace/assignments?assignment=" + assignment._id);
             } },
-            React.createElement(ListItem, { fullWidth: true },
+            React.createElement(ListItem, null,
                 React.createElement(ListItemColumn, null,
-                    React.createElement("i", { className: className, title: tooltip })),
-                React.createElement(ListItemColumn, { grow: true, noPadding: true },
+                    React.createElement("i", { className: className })),
+                React.createElement(ListItemColumn, null,
                     React.createElement(ListItemRow, null,
-                        React.createElement(ListItemColumn, { grow: true },
+                        React.createElement(ListItemColumn, null,
                             React.createElement(SluglineComponent, { assignment: assignment }))),
                     React.createElement(ListItemRow, null,
-                        React.createElement(ListItemColumn, { noBorder: true, grow: true },
+                        React.createElement(ListItemColumn, { noBorder: true },
                             React.createElement(StateComponent, { assignment: assignment })),
                         React.createElement(ListItemColumn, null,
-                            React.createElement(DueDateComponent, { assignment: assignment })))))));
+                            React.createElement(DueDateComponent, { assignment: assignment, showTooltip: false })))))));
     };
     return AssignmentsOverviewListItem;
 }(React.PureComponent));

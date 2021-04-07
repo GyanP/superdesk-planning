@@ -165,7 +165,7 @@ var AssignmentsList = /** @class */ (function (_super) {
                 }, active: isOpen, disabled: itemsCount < 1, pulsate: false, "data-test-id": "toggle-button" },
                 React.createElement(superdesk_ui_framework_1.Badge, { type: "highlight", text: itemsCount.toString() },
                     React.createElement("span", { style: { color: isOpen ? '#3783A2' : 'white' } },
-                        React.createElement(IconBig, { name: "tasks" }))))); }, renderItem: function (key, assignment, closeDropdown) { return (React.createElement(assignments_overview_list_item_1.AssignmentsOverviewListItem, { key: key, assignment: assignment, contentTypes: contentTypes, onClick: closeDropdown })); }, wrapperStyles: { whiteSpace: 'nowrap', padding: 15, paddingTop: 0 } }));
+                        React.createElement(IconBig, { name: "tasks" }))))); }, renderItem: function (key, assignment, closeDropdown) { return (React.createElement(assignments_overview_list_item_1.AssignmentsOverviewListItem, { key: key, assignment: assignment, contentTypes: contentTypes, onClick: closeDropdown })); }, wrapperStyles: { padding: 15 } }));
     };
     return AssignmentsList;
 }(React.PureComponent));

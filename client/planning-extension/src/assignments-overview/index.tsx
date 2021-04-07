@@ -231,7 +231,7 @@ export class AssignmentsList extends React.PureComponent<{}, {loading: true} | I
                         onClick={closeDropdown}
                     />
                 )}
-                wrapperStyles={{whiteSpace: 'nowrap', padding: 15, paddingTop: 0}}
+                wrapperStyles={{padding: 15}}
             />
         );
     }

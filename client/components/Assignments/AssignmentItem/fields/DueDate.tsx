@@ -9,16 +9,17 @@ import classNames from 'classnames';
 
 interface IProps {
     assignment: IAssignmentItem;
+    showTooltip: boolean;
 }
 
-export const DueDateComponent = ({assignment}: IProps) => {
+export const DueDateComponent = ({assignment, showTooltip=true}: IProps) => {
     const isOverdue = assignmentUtils.isDue(assignment);
     const assignedToProvider = assignmentUtils.isAssignedToProvider(assignment);
     const planningSchedule = get(assignment, 'planning.scheduled');
 
     return (
         <span
-            data-sd-tooltip={gettext('Due Date')}
+            data-sd-tooltip={showTooltip ? gettext('Due Date'): ''}
             data-flow="right"
             className={classNames('assignment--due-date', 'label-icon', {'label-icon--warning': isOverdue})}
         >
