@@ -2,7 +2,7 @@ bower_components
 node_modules
 nbproject
 bower
-dist
+# dist
 dist/*
 templates-cache.generated.js
 .tmp
