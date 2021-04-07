@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {IVocabularyItem} from 'superdesk-api';
-import {gettext} from '../../../utils';
+import {gettext} from '../../../utils/gettext';
 import {IAssignmentItem} from '../../../interfaces';
 import {extensionBridge} from '../extension_bridge';
 import {superdesk} from '../superdesk';
