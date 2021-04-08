@@ -139,7 +139,6 @@ export class AssignmentsList extends React.PureComponent<{}, {loading: true} | I
                 || (
                     resource === 'assignments'
                     && changeType === 'updated'
-                    && assignments.find(({_id}) => _id === itemId) != null
                 ),
         );
 

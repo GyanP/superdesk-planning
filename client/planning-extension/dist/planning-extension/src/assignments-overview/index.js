@@ -101,11 +101,7 @@ var AssignmentsList = /** @class */ (function (_super) {
             var changeType = _a.changeType, resource = _a.resource, itemId = _a.itemId;
             return (resource === 'assignments' && (changeType === 'created' || changeType === 'deleted'))
                 || (resource === 'assignments'
-                    && changeType === 'updated'
-                    && assignments.find(function (_a) {
-                        var _id = _a._id;
-                        return _id === itemId;
-                    }) != null);
+                    && changeType === 'updated');
         });
         Promise.all([
             refetchDesks ? fetchDesks() : Promise.resolve(state.desks),

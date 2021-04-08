@@ -46,7 +46,7 @@ export class AssignmentsOverviewListItem extends React.PureComponent<IProps> {
                             </ListItemColumn>
 
                             <ListItemColumn>
-                                <DueDateComponent assignment={assignment} showTooltip={false}/>
+                                <DueDateComponent assignment={assignment} showTooltip={false} />
                             </ListItemColumn>
                         </ListItemRow>
                     </ListItemColumn>
